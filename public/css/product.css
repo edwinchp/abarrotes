@@ -1,0 +1,33 @@
+.product-card{
+    width: 100%;
+    min-height: 300px;
+    margin: auto;
+    box-shadow: 0px 8px 40px -20px rgba(22, 16, 16);
+    background-color: #FFF;
+    border-radius: 12px;
+    max-width: 900px;
+    position: relative;
+    padding: 2em;
+  }
+
+  .product-right{
+  }
+
+  .product-right img{
+      width: 90%;
+      border-radius: 13px;
+      padding: 1em;
+      position: relative;
+      align-content: center;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+
+  #success-message{
+      position: fixed;
+      z-index: 10;
+      left: 15px;
+      bottom: 50px;
+  }

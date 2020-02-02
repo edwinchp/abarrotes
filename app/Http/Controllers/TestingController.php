@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\DB;
 use App\Product;
+use App\User;
 
 class TestingController extends Controller
 {
@@ -20,4 +21,15 @@ class TestingController extends Controller
             return $d;
         }
     }
+
+public function createProduct(){
+
+  $user = User::findOrFail(2);
+  $product = new Product(['name'=>'New product', 'content'=>'24']);
+
+  $user->products()->save($product);
+
+}
+
+
 }

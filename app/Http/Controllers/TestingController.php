@@ -52,5 +52,13 @@ public function getUserProducts(){
 
 }
 
+public function updateUserProduct(){
+  $user = User::findOrFail(3);
+
+  $user->products()->whereId(92)->update(['name'=> 'updated name', 'content'=>'666']);
+
+  return redirect('/home');
+}
+
 
 }

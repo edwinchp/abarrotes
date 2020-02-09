@@ -60,5 +60,11 @@ public function updateUserProduct(){
   return redirect('/home');
 }
 
+public function deleteUserProduct(){
+  $user = User::findOrFail(3);
+  $user->products()->whereId(92)->delete();
+  return redirect('/home');
+}
+
 
 }

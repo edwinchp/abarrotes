@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\User;
+use App\Role;
 
 class TestingController extends Controller
 {
@@ -64,6 +65,11 @@ public function deleteUserProduct(){
   $user = User::findOrFail(3);
   $user->products()->whereId(92)->delete();
   return redirect('/home');
+}
+
+public function createRole(){
+  $user = User::findOrFail(3);
+  $user->roles()->save(new Role(['name'=>'Administrator']));
 }
 
 

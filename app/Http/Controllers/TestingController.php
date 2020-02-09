@@ -23,11 +23,21 @@ class TestingController extends Controller
     }
 
 public function createProduct(){
-
   $user = User::findOrFail(3);
-  $product = new Product(['name'=>'Second column', 'content'=>'5']);
+  $no = rand(10, 99);
+  $product = new Product(
+    ['name'=>'Automated product ' . $no
+    ,'content'=>$no
+    ,'price'=>$no
+    ,'barcode'=> $no*$no+$no
+  ]
+
+  );
+
 
   $user->products()->save($product);
+
+  return redirect('/home');
 
 }
 

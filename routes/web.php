@@ -22,5 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('product', 'ProductController');
 
+
+/*
+  TESTING METHODS
+*/
 Route::get('/testing', 'TestingController@index');
 Route::get('/createProduct', 'TestingController@createProduct');

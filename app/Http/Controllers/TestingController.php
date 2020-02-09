@@ -73,4 +73,20 @@ public function createRole(){
 }
 
 
+public function updateRole(){
+  $user = User::findOrFail(3);
+
+  if($user->has('roles')){
+    //foreach($user)
+    foreach($user->roles as $role){
+      //echo $role;
+      if($role->name == 'Administrator'){
+        $role->name = 'suscriber';
+        $role->save();
+      }
+    }
+  }
+
+}
+
 }

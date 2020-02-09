@@ -32,3 +32,4 @@ Route::get('/getUserProducts', 'TestingController@getUserProducts');
 Route::get('/updateUserProduct', 'TestingController@updateUserProduct');
 Route::get('/deleteUserProduct', 'TestingController@deleteUserProduct');
 Route::get('/createRole', 'TestingController@createRole');
+Route::get('/updateRole', 'TestingController@updateRole');

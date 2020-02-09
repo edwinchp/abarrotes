@@ -28,3 +28,4 @@ Route::resource('product', 'ProductController');
 */
 Route::get('/testing', 'TestingController@index');
 Route::get('/createProduct', 'TestingController@createProduct');
+Route::get('/getUserProducts', 'TestingController@getUserProducts');

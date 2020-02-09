@@ -30,6 +30,7 @@ public function createProduct(){
     ,'content'=>$no
     ,'price'=>$no
     ,'barcode'=> $no*$no+$no
+    //,'user_id'=>3
   ]
 
   );
@@ -37,7 +38,17 @@ public function createProduct(){
 
   $user->products()->save($product);
 
-  return redirect('/home');
+  return redirect('/getUserProducts');
+
+}
+
+public function getUserProducts(){
+  $user = User::findOrFail(3);
+  //return($user->products);
+
+  foreach ($user->products as $product) {
+    echo $product->name . '<br>';
+  }
 
 }
 

@@ -116,11 +116,10 @@
 
 
     <div class="row pt-5">
-
         <div class="col-10 offset-1">
             <div class="row pb-3">
                 <div class="col-10">
-                    <h3>Productos (3)</h3>
+                    <h3>Productos ({{count($details)}})</h3>
                 </div>
                 <div class="col-2" align="right">
                     <button class="btn btn-success" type="button" data-toggle="modal" data-target="#add-modal">Añadir
@@ -133,43 +132,29 @@
                     <tr align="center">
                         <th align="left">Precio de adquisición</th>
                         <th>Fecha</th>
-                        <th>Actualizado por</th>
+                        <th>Creado por</th>
                         <th>Estado</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
+                  @foreach($details as $detail)
+
                     <tr align="center">
-                        <td>$23</td>
-                        <td>05/Oct/2019 12:23pm</td>
-                        <td>Celia Pineiro</td>
-                        <td>Disponible</td>
+                        <td>${{$detail->cost_price}}</td>
+                        <td>{{$detail->created_at}}</td>
+                        <td>{{$detail->created_by}}</td>
+                        <td>{{$detail->status}}</td>
                         <td><button class="btn btn-primary">Editar</button>
                             <button class="btn btn-danger">Borrar</button></td>
                     </tr>
+                    @endforeach
 
-                    <tr align="center">
-                        <td>$23</td>
-                        <td>05/Oct/2019 12:23pm</td>
-                        <td>Celia Pineiro</td>
-                        <td>Defectuoso</td>
-                        <td><button class="btn btn-primary" disabled>Editar</button>
-                            <button class="btn btn-danger" disabled>Borrar</button></td>
-                    </tr>
 
-                    <tr align="center">
-                        <td>$23</td>
-                        <td>05/Oct/2019 12:23pm</td>
-                        <td>Juan Chi</td>
-                        <td>Vendido</td>
-                        <td><button class="btn btn-primary">Editar</button>
-                            <button class="btn btn-danger">Borrar</button></td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    cost price: {{$product->cost_price}}
 </div>
 
 <!--MODAL-->
@@ -257,6 +242,11 @@
           </div>
         </div>
       </div>
+
+
+
+
+
 
 
 @include('layouts.success_alert')

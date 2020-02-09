@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\ProductDetail;
 
 class ProductController extends Controller
 {
@@ -69,8 +70,12 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
+        $details = ProductDetail::where('product_id', '=', $id)->get();
 
-        return view('product.show')->with('product', $product);
+        //return view('product.show')->with('product', $product);
+        return view('product.show',
+        ['product' => $product, 'details' => $details]
+      );
     }
 
     /**
@@ -123,7 +128,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        // echo
+        $details = ProductDetail::where('product_id', $id)->delete();
         $product->delete();
         session()->flash('success', 'Producto eliminado.');
 

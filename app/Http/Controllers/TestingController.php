@@ -24,8 +24,8 @@ class TestingController extends Controller
 
 public function createProduct(){
 
-  $user = User::findOrFail(2);
-  $product = new Product(['name'=>'New product', 'content'=>'24']);
+  $user = User::findOrFail(3);
+  $product = new Product(['name'=>'Second column', 'content'=>'5']);
 
   $user->products()->save($product);
 

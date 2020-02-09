@@ -16,7 +16,7 @@ class Product extends Model
        return $this->hasMany('App\ProductDetail');
     }
 
-    // public function user(){
-    //   return $this->hasOne('App/Product');
+    // public function product_details(){
+    //   return $this->hasMany('App/ProductDetail');
     // }
 }

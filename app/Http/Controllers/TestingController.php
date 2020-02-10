@@ -10,18 +10,19 @@ use App\Role;
 
 class TestingController extends Controller
 {
-    public function index(){
 
+  public function index(){
     	//$data = DB::table('products')->paginate(4);
     	$data = Product::orderBy('created_at', 'desc')->paginate(5);
-
         //return view('testing.pagination', ['data'=> $data]);
         $detail = Product::find(73)->productDetails();
         //return $detail;
         foreach ($detail as $d){
             return $d;
         }
-    }
+}
+
+
 
 public function createProduct(){
   $user = User::findOrFail(3);
@@ -33,33 +34,30 @@ public function createProduct(){
     ,'barcode'=> $no*$no+$no
     //,'user_id'=>3
   ]
-
-  );
-
-
+);
   $user->products()->save($product);
-
   return redirect('/getUserProducts');
-
 }
+
+
 
 public function getUserProducts(){
   $user = User::findOrFail(3);
   //return($user->products);
-
   foreach ($user->products as $product) {
     echo $product->name . '<br>';
   }
-
 }
+
+
 
 public function updateUserProduct(){
   $user = User::findOrFail(3);
-
   $user->products()->whereId(92)->update(['name'=> 'updated name', 'content'=>'666']);
-
   return redirect('/home');
 }
+
+
 
 public function deleteUserProduct(){
   $user = User::findOrFail(3);
@@ -67,15 +65,17 @@ public function deleteUserProduct(){
   return redirect('/home');
 }
 
+
+
 public function createRole(){
   $user = User::findOrFail(3);
   $user->roles()->save(new Role(['name'=>'Administrator']));
 }
 
 
+
 public function updateRole(){
   $user = User::findOrFail(3);
-
   if($user->has('roles')){
     //foreach($user)
     foreach($user->roles as $role){
@@ -88,9 +88,10 @@ public function updateRole(){
   }
 }
 
+
+
 public function deleteRole(){
   $user = User::findOrFail(3);
-
   foreach($user->roles as $role){
     if($role->name == "Cajero"){
       $role->delete();

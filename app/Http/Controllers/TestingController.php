@@ -86,7 +86,16 @@ public function updateRole(){
       }
     }
   }
+}
 
+public function deleteRole(){
+  $user = User::findOrFail(3);
+
+  foreach($user->roles as $role){
+    if($role->name == "Cajero"){
+      $role->delete();
+    }
+  }
 }
 
 }
